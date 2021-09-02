@@ -21,4 +21,12 @@ function validateProject (req, res, next){
     }
 }
 
-module.exports = { validateProjectId, validateProject }
+function validateProjectPut (req, res, next){
+    if (req.body.name && req.body.description && req.body.completed){
+        next();
+    }else{
+        next({ status: 400, message: 'Project must include name, description and completed status' });
+    }
+}
+
+module.exports = { validateProjectId, validateProject, validateProjectPut }
