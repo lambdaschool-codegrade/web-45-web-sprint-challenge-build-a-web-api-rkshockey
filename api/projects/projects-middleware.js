@@ -14,10 +14,10 @@ function validateProjectId (req, res, next){
 }
 
 function validateProject (req, res, next){
-    if (req.body.name && req.body.description && req.body.completed){
+    if (req.body.name && req.body.description){
         next();
     }else{
-        next({ status: 400, message: 'Project must include name, description and completed status' });
+        next({ status: 400, message: 'Project must include name and description' });
     }
 }
 
